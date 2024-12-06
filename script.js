@@ -1,4 +1,16 @@
 const container = document.querySelector(".container");
+let size;
+//adding a reset button
+const resetButton = document.createElement("button");
+resetButton.addEventListener("click", ()=>{
+    let size = prompt("Enter grid size less than 90");
+    size = parseInt(size);
+
+    if(size>90 || size < 1 || NaN(size)){
+        alert("Please enter a numberbetween 1 and 90");
+        return;
+    }
+});
 
 //reusable function to create the grid so we can adjust its size dynamically
 function createGrid(size) {
@@ -41,8 +53,8 @@ function hoverEffect(){
         square.classList.toggle("red");
     });
  });
-}
+};
 
 
-createGrid(16);
+createGrid(size);
 hoverEffect();

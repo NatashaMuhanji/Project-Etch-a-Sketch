@@ -1,16 +1,4 @@
 const container = document.querySelector(".container");
-let size;
-//adding a reset button
-const resetButton = document.createElement("button");
-resetButton.addEventListener("click", ()=>{
-    let size = prompt("Enter grid size less than 90");
-    size = parseInt(size);
-
-    if(size>90 || size < 1 || NaN(size)){
-        alert("Please enter a numberbetween 1 and 90");
-        return;
-    }
-});
 
 //reusable function to create the grid so we can adjust its size dynamically
 function createGrid(size) {
@@ -24,7 +12,7 @@ function createGrid(size) {
     container.style.border= '2px solid black';
     container.style.justifyContent = 'center';
 
-    //calculate the sice of each square
+    //calculate the size of each square
     const squareSize = 960/(size + 1);
 
     //loop for creating the squares
@@ -55,6 +43,28 @@ function hoverEffect(){
  });
 };
 
+//adding a reset button
+const elementcontrol = document.querySelector(".elementcontrol");
 
-createGrid(size);
+const resetButton = document.createElement("button");
+
+elementcontrol.append(resetButton);
+
+resetButton.innerHTML = '<button>Reset Grid</button>';
+
+//an event listener
+resetButton.addEventListener("click", ()=>{
+    let size = prompt("Enter grid size less than 90");
+    size = parseInt(size);
+
+    if(size>90 || size < 1 || NaN(size)){
+        alert("Please enter a numberbetween 1 and 90");
+        return;
+    }
+    createGrid(size);
+    hoverEffect();
+});
+
+
+createGrid(16);
 hoverEffect();

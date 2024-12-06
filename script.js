@@ -31,6 +31,18 @@ function createGrid(size) {
         square.style.width = `${squareSize}px`;
 
     }
+};
+
+//function that adds hovering effect
+function hoverEffect(){
+ const squares = document.querySelectorAll('.square');
+ squares.forEach(square =>{
+    square.addEventListener('mouseover', ()=>{
+        square.classList.toggle("red");
+    });
+ });
 }
 
+
 createGrid(16);
+hoverEffect();
